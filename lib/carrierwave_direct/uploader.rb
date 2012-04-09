@@ -30,17 +30,13 @@ module CarrierWaveDirect
       fog_uri
     end
 
-    def guid
-      UUID.generate
-    end
-
     def key=(k)
       @key = k
       update_version_keys(:with => @key)
     end
 
     def key
-      @key ||= "#{store_dir}/#{guid}/#{FILENAME_WILDCARD}"
+      @key ||= "#{store_dir}/#{FILENAME_WILDCARD}"
     end
 
     def has_key?
